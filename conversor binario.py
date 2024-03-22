@@ -1,1 +1,1 @@
-pyinstaller --onefile --hidden-import pdf2docx --hidden-import tkinter ".\conversor pdf2world.py"
+pyinstaller --onefile --hidden-import pdf2docx --hidden-import tkinter ".\conversor pdf2docx.py"
