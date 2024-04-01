@@ -10,19 +10,20 @@ def convert_pdf_to_docx(pdf_file_path):
     cv = Converter(pdf_file_path)
     cv.convert(docx_file_path)
     cv.close()
-    print("Conversion completed successfully!")
+    print(f"Conversion of {pdf_file_path} completed successfully!")
 
-def select_pdf_file():
-    file_path = filedialog.askopenfilename(filetypes=[("PDF files", "*.pdf")])
-    if file_path:
-        convert_pdf_to_docx(file_path)
+def select_pdf_files():
+    file_paths = filedialog.askopenfilenames(filetypes=[("PDF files", "*.pdf")])
+    if file_paths:
+        for file_path in file_paths:
+            convert_pdf_to_docx(file_path)
 
 def main():
     root = tk.Tk()
     root.withdraw()  # Hide the main window
 
-    # Display file dialog to select PDF file
-    select_pdf_file()
+    # Display file dialog to select PDF files
+    select_pdf_files()
 
     root.mainloop()
 
